@@ -1153,7 +1153,76 @@
           <ownedStateMachines xsi:type="org.polarsys.capella.core.data.capellacommon:StateMachine"
               id="55887f1d-a1fd-4355-915c-50aceb8b5120" name="System State Machine">
             <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
-                id="6b751681-2a7c-46fd-babd-fffa69c10f5a" name="Default Region"/>
+                id="6b751681-2a7c-46fd-babd-fffa69c10f5a" name="Default Region" involvedStates="#8b1d8743-dd0f-450f-b167-d4c05bf0badc #8eec37da-5253-4f56-bd13-7728aa1b53b5 #473cc053-d961-46b6-8110-79476743de69">
+              <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
+                  id="8b1d8743-dd0f-450f-b167-d4c05bf0badc" name="Robot Idle">
+                <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                    id="7b23f05e-b93a-42ac-a8eb-94dbc28a1357" name="region"/>
+              </ownedStates>
+              <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
+                  id="8eec37da-5253-4f56-bd13-7728aa1b53b5" name="Robot on Job">
+                <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                    id="333ec9a5-e2e3-4905-8dbe-d0ec07e4dd3c" name="region"/>
+              </ownedStates>
+              <ownedStates xsi:type="org.polarsys.capella.core.data.capellacommon:State"
+                  id="473cc053-d961-46b6-8110-79476743de69" name="Robot Waiting">
+                <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
+                    id="cebf5d66-e6d8-4d3f-ad38-91579084be92" name="region"/>
+              </ownedStates>
+              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                  id="2e72177c-9e57-403e-bee6-b5e4ddf3466f" name="Start the Experiment"
+                  triggerDescription="" guard="#aec106bc-0938-460f-87d0-b1be2c0945bf"
+                  source="#8b1d8743-dd0f-450f-b167-d4c05bf0badc" target="#8eec37da-5253-4f56-bd13-7728aa1b53b5"
+                  triggers="#5ac82b10-cd06-4dc9-84fe-aea9e3ad5f9f">
+                <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                    id="aec106bc-0938-460f-87d0-b1be2c0945bf" name="">
+                  <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                      id="5dc56007-af50-4284-a93f-f67547fe58ea">
+                    <bodies>Start the Experiment</bodies>
+                    <languages>capella:linkedText</languages>
+                  </ownedSpecification>
+                </ownedConstraints>
+              </ownedTransitions>
+              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                  id="e0a88570-9b1c-4b2e-a172-1cf65c87fe6e" name="Finish The Experiment"
+                  triggerDescription="" guard="#2eb9a9d7-b579-42e6-8e34-8b40d3858dfe"
+                  source="#8eec37da-5253-4f56-bd13-7728aa1b53b5" target="#8b1d8743-dd0f-450f-b167-d4c05bf0badc">
+                <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                    id="2eb9a9d7-b579-42e6-8e34-8b40d3858dfe" name="">
+                  <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                      id="91e50902-e612-4d7e-9acc-6121cf8fed3a">
+                    <bodies>Finish The Experiment</bodies>
+                    <languages>capella:linkedText</languages>
+                  </ownedSpecification>
+                </ownedConstraints>
+              </ownedTransitions>
+              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                  id="47e6c388-fb8d-42da-826e-bbbabb00990c" name="Job is finished"
+                  triggerDescription="" guard="#2af930b6-d424-47c6-a1a6-04122a03b0a4"
+                  source="#8eec37da-5253-4f56-bd13-7728aa1b53b5" target="#473cc053-d961-46b6-8110-79476743de69">
+                <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                    id="2af930b6-d424-47c6-a1a6-04122a03b0a4" name="">
+                  <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                      id="6ce61c33-5f3a-4410-8629-d634a7274de6">
+                    <bodies>Job is finished</bodies>
+                    <languages>capella:linkedText</languages>
+                  </ownedSpecification>
+                </ownedConstraints>
+              </ownedTransitions>
+              <ownedTransitions xsi:type="org.polarsys.capella.core.data.capellacommon:StateTransition"
+                  id="e65b3ed3-7450-4fe4-8fa0-4df253ae618b" triggerDescription=""
+                  guard="#0cfdd563-4a48-47d1-98e1-3fb486bebf9b" source="#473cc053-d961-46b6-8110-79476743de69"
+                  target="#8eec37da-5253-4f56-bd13-7728aa1b53b5" triggers="#96dc74a5-83cf-410b-b8a6-40240cf829dd">
+                <ownedConstraints xsi:type="org.polarsys.capella.core.data.capellacore:Constraint"
+                    id="0cfdd563-4a48-47d1-98e1-3fb486bebf9b" name="">
+                  <ownedSpecification xsi:type="org.polarsys.capella.core.data.information.datavalue:OpaqueExpression"
+                      id="4c108881-45cc-4b83-ab50-e9b1f26d1b8a">
+                    <bodies>Next iteration</bodies>
+                    <languages>capella:linkedText</languages>
+                  </ownedSpecification>
+                </ownedConstraints>
+              </ownedTransitions>
+            </ownedRegions>
           </ownedStateMachines>
         </ownedSystemComponents>
         <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
